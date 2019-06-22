@@ -219,3 +219,5 @@ gradle-app.setting
 
 app/build
 .idea/workspace.xml
+gradle.properties
+.idea/misc.xml

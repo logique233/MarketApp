@@ -18,14 +18,7 @@ import android.util.Base64;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.ImageView;
-import android.widget.Spinner;
-import android.widget.Toast;
-
+import android.widget.*;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.sqh.market.R;
@@ -33,6 +26,9 @@ import com.sqh.market.constant.Constants;
 import com.sqh.market.constant.MyConstant;
 import com.sqh.market.utils.LoginCheckUtil;
 import com.sqh.market.utils.NetUtil;
+import okhttp3.*;
+import pub.devrel.easypermissions.AppSettingsDialog;
+import pub.devrel.easypermissions.EasyPermissions;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -40,14 +36,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.lang.reflect.Array;
 import java.util.List;
-
-import okhttp3.Call;
-import okhttp3.Callback;
-import okhttp3.FormBody;
-import okhttp3.RequestBody;
-import okhttp3.Response;
-import pub.devrel.easypermissions.AppSettingsDialog;
-import pub.devrel.easypermissions.EasyPermissions;
 
 import static android.app.Activity.RESULT_OK;
 
@@ -468,7 +456,7 @@ public class BlankFragment extends Fragment implements EasyPermissions.Permissio
     public int tpyeid(String type) {
         String typelist[]={"食品","饮品","3C数码","生活家居","服装服饰","美妆洗护","箱包","母婴","图书","宠物"};
         for (int i = 0; i < typelist.length-1; i++) {
-            if (type == typelist[i]) {
+            if (type.equals(typelist[i]) ) {
                 return i + 1;
             }
         }
